@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  Heroku2
 //
-//  Created by thinkit  on 8/21/14.
+//  Created by lisai  on 8/21/14.
 //  Copyright (c) 2014 thoughtworks. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "HerokuViewController.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    HerokuViewController *herokuVC = [[HerokuViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:herokuVC];
+    
+    [self.window setRootViewController:navigationController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

@@ -19,6 +19,12 @@
 		787B593419A5E8B50045F96F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591C19A5E8B40045F96F /* UIKit.framework */; };
 		787B593C19A5E8B50045F96F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 787B593A19A5E8B50045F96F /* InfoPlist.strings */; };
 		787B593E19A5E8B50045F96F /* Heroku2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B593D19A5E8B50045F96F /* Heroku2Tests.m */; };
+		787B594A19A5E8DE0045F96F /* HerokuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B594919A5E8DE0045F96F /* HerokuViewController.m */; };
+		787B594E19A5ECAC0045F96F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B594D19A5ECAC0045F96F /* Constants.m */; };
+		787B595719A5ED020045F96F /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B595119A5ED020045F96F /* CJSONDeserializer.m */; };
+		787B595819A5ED020045F96F /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B595319A5ED020045F96F /* CJSONSerializer.m */; };
+		787B595919A5ED020045F96F /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B595619A5ED020045F96F /* NSDictionary_JSONExtensions.m */; };
+		787B595D19A5FD730045F96F /* Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B595C19A5FD730045F96F /* Hero.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,19 @@
 		787B593919A5E8B50045F96F /* Heroku2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Heroku2Tests-Info.plist"; sourceTree = "<group>"; };
 		787B593B19A5E8B50045F96F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		787B593D19A5E8B50045F96F /* Heroku2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heroku2Tests.m; sourceTree = "<group>"; };
+		787B594819A5E8DE0045F96F /* HerokuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerokuViewController.h; sourceTree = "<group>"; };
+		787B594919A5E8DE0045F96F /* HerokuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerokuViewController.m; sourceTree = "<group>"; };
+		787B594C19A5ECAC0045F96F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		787B594D19A5ECAC0045F96F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		787B595019A5ED020045F96F /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		787B595119A5ED020045F96F /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		787B595219A5ED020045F96F /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		787B595319A5ED020045F96F /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		787B595419A5ED020045F96F /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		787B595519A5ED020045F96F /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		787B595619A5ED020045F96F /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		787B595B19A5FD730045F96F /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
+		787B595C19A5FD730045F96F /* Hero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hero.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +126,10 @@
 		787B591E19A5E8B40045F96F /* Heroku2 */ = {
 			isa = PBXGroup;
 			children = (
+				787B595A19A5FD420045F96F /* DataModel */,
+				787B594F19A5ECE40045F96F /* JSONTouch */,
+				787B594B19A5EC980045F96F /* Constants */,
+				787B594719A5E8C00045F96F /* ViewControllers */,
 				787B592719A5E8B40045F96F /* AppDelegate.h */,
 				787B592819A5E8B40045F96F /* AppDelegate.m */,
 				787B592A19A5E8B40045F96F /* Images.xcassets */,
@@ -142,6 +165,47 @@
 				787B593A19A5E8B50045F96F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		787B594719A5E8C00045F96F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				787B594819A5E8DE0045F96F /* HerokuViewController.h */,
+				787B594919A5E8DE0045F96F /* HerokuViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		787B594B19A5EC980045F96F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				787B594C19A5ECAC0045F96F /* Constants.h */,
+				787B594D19A5ECAC0045F96F /* Constants.m */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		787B594F19A5ECE40045F96F /* JSONTouch */ = {
+			isa = PBXGroup;
+			children = (
+				787B595019A5ED020045F96F /* CJSONDeserializer.h */,
+				787B595119A5ED020045F96F /* CJSONDeserializer.m */,
+				787B595219A5ED020045F96F /* CJSONSerializer.h */,
+				787B595319A5ED020045F96F /* CJSONSerializer.m */,
+				787B595419A5ED020045F96F /* JSONRepresentation.h */,
+				787B595519A5ED020045F96F /* NSDictionary_JSONExtensions.h */,
+				787B595619A5ED020045F96F /* NSDictionary_JSONExtensions.m */,
+			);
+			name = JSONTouch;
+			sourceTree = "<group>";
+		};
+		787B595A19A5FD420045F96F /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				787B595B19A5FD730045F96F /* Hero.h */,
+				787B595C19A5FD730045F96F /* Hero.m */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,8 +303,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787B594A19A5E8DE0045F96F /* HerokuViewController.m in Sources */,
 				787B592919A5E8B40045F96F /* AppDelegate.m in Sources */,
 				787B592519A5E8B40045F96F /* main.m in Sources */,
+				787B595819A5ED020045F96F /* CJSONSerializer.m in Sources */,
+				787B594E19A5ECAC0045F96F /* Constants.m in Sources */,
+				787B595719A5ED020045F96F /* CJSONDeserializer.m in Sources */,
+				787B595919A5ED020045F96F /* NSDictionary_JSONExtensions.m in Sources */,
+				787B595D19A5FD730045F96F /* Hero.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -348,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -362,6 +432,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
 				INFOPLIST_FILE = "Heroku2/Heroku2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -375,6 +446,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
 				INFOPLIST_FILE = "Heroku2/Heroku2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
