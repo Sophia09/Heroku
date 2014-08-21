@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		787B591919A5E8B40045F96F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591819A5E8B40045F96F /* Foundation.framework */; };
+		787B591B19A5E8B40045F96F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591A19A5E8B40045F96F /* CoreGraphics.framework */; };
+		787B591D19A5E8B40045F96F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591C19A5E8B40045F96F /* UIKit.framework */; };
+		787B592319A5E8B40045F96F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 787B592119A5E8B40045F96F /* InfoPlist.strings */; };
+		787B592519A5E8B40045F96F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B592419A5E8B40045F96F /* main.m */; };
+		787B592919A5E8B40045F96F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B592819A5E8B40045F96F /* AppDelegate.m */; };
+		787B592B19A5E8B40045F96F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 787B592A19A5E8B40045F96F /* Images.xcassets */; };
+		787B593219A5E8B50045F96F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B593119A5E8B50045F96F /* XCTest.framework */; };
+		787B593319A5E8B50045F96F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591819A5E8B40045F96F /* Foundation.framework */; };
+		787B593419A5E8B50045F96F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591C19A5E8B40045F96F /* UIKit.framework */; };
+		787B593C19A5E8B50045F96F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 787B593A19A5E8B50045F96F /* InfoPlist.strings */; };
+		787B593E19A5E8B50045F96F /* Heroku2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B593D19A5E8B50045F96F /* Heroku2Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		787B593519A5E8B50045F96F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 787B590D19A5E8B40045F96F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 787B591419A5E8B40045F96F;
+			remoteInfo = Heroku2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		787B591519A5E8B40045F96F /* Heroku2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heroku2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		787B591819A5E8B40045F96F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		787B591A19A5E8B40045F96F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		787B591C19A5E8B40045F96F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		787B592019A5E8B40045F96F /* Heroku2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Heroku2-Info.plist"; sourceTree = "<group>"; };
+		787B592219A5E8B40045F96F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		787B592419A5E8B40045F96F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		787B592619A5E8B40045F96F /* Heroku2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Heroku2-Prefix.pch"; sourceTree = "<group>"; };
+		787B592719A5E8B40045F96F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		787B592819A5E8B40045F96F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		787B592A19A5E8B40045F96F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		787B593019A5E8B40045F96F /* Heroku2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Heroku2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		787B593119A5E8B50045F96F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		787B593919A5E8B50045F96F /* Heroku2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Heroku2Tests-Info.plist"; sourceTree = "<group>"; };
+		787B593B19A5E8B50045F96F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		787B593D19A5E8B50045F96F /* Heroku2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heroku2Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		787B591219A5E8B40045F96F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787B591B19A5E8B40045F96F /* CoreGraphics.framework in Frameworks */,
+				787B591D19A5E8B40045F96F /* UIKit.framework in Frameworks */,
+				787B591919A5E8B40045F96F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		787B592D19A5E8B40045F96F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787B593219A5E8B50045F96F /* XCTest.framework in Frameworks */,
+				787B593419A5E8B50045F96F /* UIKit.framework in Frameworks */,
+				787B593319A5E8B50045F96F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		787B590C19A5E8B40045F96F = {
+			isa = PBXGroup;
+			children = (
+				787B591E19A5E8B40045F96F /* Heroku2 */,
+				787B593719A5E8B50045F96F /* Heroku2Tests */,
+				787B591719A5E8B40045F96F /* Frameworks */,
+				787B591619A5E8B40045F96F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		787B591619A5E8B40045F96F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				787B591519A5E8B40045F96F /* Heroku2.app */,
+				787B593019A5E8B40045F96F /* Heroku2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		787B591719A5E8B40045F96F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				787B591819A5E8B40045F96F /* Foundation.framework */,
+				787B591A19A5E8B40045F96F /* CoreGraphics.framework */,
+				787B591C19A5E8B40045F96F /* UIKit.framework */,
+				787B593119A5E8B50045F96F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		787B591E19A5E8B40045F96F /* Heroku2 */ = {
+			isa = PBXGroup;
+			children = (
+				787B592719A5E8B40045F96F /* AppDelegate.h */,
+				787B592819A5E8B40045F96F /* AppDelegate.m */,
+				787B592A19A5E8B40045F96F /* Images.xcassets */,
+				787B591F19A5E8B40045F96F /* Supporting Files */,
+			);
+			path = Heroku2;
+			sourceTree = "<group>";
+		};
+		787B591F19A5E8B40045F96F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				787B592019A5E8B40045F96F /* Heroku2-Info.plist */,
+				787B592119A5E8B40045F96F /* InfoPlist.strings */,
+				787B592419A5E8B40045F96F /* main.m */,
+				787B592619A5E8B40045F96F /* Heroku2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		787B593719A5E8B50045F96F /* Heroku2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				787B593D19A5E8B50045F96F /* Heroku2Tests.m */,
+				787B593819A5E8B50045F96F /* Supporting Files */,
+			);
+			path = Heroku2Tests;
+			sourceTree = "<group>";
+		};
+		787B593819A5E8B50045F96F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				787B593919A5E8B50045F96F /* Heroku2Tests-Info.plist */,
+				787B593A19A5E8B50045F96F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		787B591419A5E8B40045F96F /* Heroku2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 787B594119A5E8B50045F96F /* Build configuration list for PBXNativeTarget "Heroku2" */;
+			buildPhases = (
+				787B591119A5E8B40045F96F /* Sources */,
+				787B591219A5E8B40045F96F /* Frameworks */,
+				787B591319A5E8B40045F96F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Heroku2;
+			productName = Heroku2;
+			productReference = 787B591519A5E8B40045F96F /* Heroku2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		787B592F19A5E8B40045F96F /* Heroku2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 787B594419A5E8B50045F96F /* Build configuration list for PBXNativeTarget "Heroku2Tests" */;
+			buildPhases = (
+				787B592C19A5E8B40045F96F /* Sources */,
+				787B592D19A5E8B40045F96F /* Frameworks */,
+				787B592E19A5E8B40045F96F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				787B593619A5E8B50045F96F /* PBXTargetDependency */,
+			);
+			name = Heroku2Tests;
+			productName = Heroku2Tests;
+			productReference = 787B593019A5E8B40045F96F /* Heroku2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		787B590D19A5E8B40045F96F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = thoughtworks;
+				TargetAttributes = {
+					787B592F19A5E8B40045F96F = {
+						TestTargetID = 787B591419A5E8B40045F96F;
+					};
+				};
+			};
+			buildConfigurationList = 787B591019A5E8B40045F96F /* Build configuration list for PBXProject "Heroku2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 787B590C19A5E8B40045F96F;
+			productRefGroup = 787B591619A5E8B40045F96F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				787B591419A5E8B40045F96F /* Heroku2 */,
+				787B592F19A5E8B40045F96F /* Heroku2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		787B591319A5E8B40045F96F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787B592319A5E8B40045F96F /* InfoPlist.strings in Resources */,
+				787B592B19A5E8B40045F96F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		787B592E19A5E8B40045F96F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787B593C19A5E8B50045F96F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		787B591119A5E8B40045F96F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787B592919A5E8B40045F96F /* AppDelegate.m in Sources */,
+				787B592519A5E8B40045F96F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		787B592C19A5E8B40045F96F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787B593E19A5E8B50045F96F /* Heroku2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		787B593619A5E8B50045F96F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 787B591419A5E8B40045F96F /* Heroku2 */;
+			targetProxy = 787B593519A5E8B50045F96F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		787B592119A5E8B40045F96F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				787B592219A5E8B40045F96F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		787B593A19A5E8B50045F96F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				787B593B19A5E8B50045F96F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		787B593F19A5E8B50045F96F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		787B594019A5E8B50045F96F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		787B594219A5E8B50045F96F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
+				INFOPLIST_FILE = "Heroku2/Heroku2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		787B594319A5E8B50045F96F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
+				INFOPLIST_FILE = "Heroku2/Heroku2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		787B594519A5E8B50045F96F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Heroku2.app/Heroku2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Heroku2Tests/Heroku2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		787B594619A5E8B50045F96F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Heroku2.app/Heroku2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
+				INFOPLIST_FILE = "Heroku2Tests/Heroku2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		787B591019A5E8B40045F96F /* Build configuration list for PBXProject "Heroku2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				787B593F19A5E8B50045F96F /* Debug */,
+				787B594019A5E8B50045F96F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		787B594119A5E8B50045F96F /* Build configuration list for PBXNativeTarget "Heroku2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				787B594219A5E8B50045F96F /* Debug */,
+				787B594319A5E8B50045F96F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		787B594419A5E8B50045F96F /* Build configuration list for PBXNativeTarget "Heroku2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				787B594519A5E8B50045F96F /* Debug */,
+				787B594619A5E8B50045F96F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 787B590D19A5E8B40045F96F /* Project object */;
+}
