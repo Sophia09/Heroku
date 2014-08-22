@@ -232,7 +232,7 @@
             titleLabel.textColor = [UIColor blueColor];
             titleLabel.tag = kTitleLabelTag;
             titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            titleLabel.backgroundColor = [UIColor redColor];
+//            titleLabel.backgroundColor = [UIColor redColor];
             
             // Set numberOfLines to zero to show multiple lines
             titleLabel.numberOfLines = 0;
@@ -265,7 +265,7 @@
             descriptionLabel.tag = kDescriptionLabelTag;
             descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
             descriptionLabel.numberOfLines = 0;
-            descriptionLabel.backgroundColor = [UIColor greenColor];
+//            descriptionLabel.backgroundColor = [UIColor greenColor];
             [cell.contentView addSubview:descriptionLabel];
         }
         
@@ -297,7 +297,7 @@
         imageView.image = nil;
         
         NSString *urlString = ((Hero *)[dataSource objectAtIndex:indexPath.row]).imageHref;
-        NSString *imageName = [NSString stringWithFormat:@"%@%d", kCachedImagePrefix, indexPath.row];
+        NSString *imageName = [NSString stringWithFormat:@"%@%d", kCachedImagePrefix, (int)indexPath.row];
         NSString *extension = [urlString substringFromIndex:(urlString.length - 3)];
         
         // If the image for this cell is already exist, show it directly.
@@ -336,7 +336,7 @@
                 }
                 else
                 {
-                    NSLog(@"cell %d %@ is unavailable.", indexPath.row, urlString);
+                    NSLog(@"cell %d %@ is unavailable.", (int)indexPath.row, urlString);
                     [imageSpinner stopAnimating];
                     [imageSpinner removeFromSuperview];
                     imageView.image = [UIImage imageNamed:@"noImage.jpg"];
