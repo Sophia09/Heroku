@@ -139,11 +139,54 @@
     }
 }
 
+- (CGSize)titleLabelSize:(NSString *)title
+{
+    UIFont *titleFont =  [UIFont systemFontOfSize:17];
+    CGSize constraint = CGSizeMake(280, 20000);
+    return [title sizeWithFont:titleFont
+                       constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+}
+
+- (CGSize)descritionLabelSie:(NSString *)description
+{
+    UIFont *descriptionFont =  [UIFont systemFontOfSize:12];
+    CGSize constraint = CGSizeMake(200, 20000);
+    return [description sizeWithFont:descriptionFont
+                                   constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+}
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44.0;
+//    return 44.0;
+    
+    CGFloat cellHeight = 0;
+    Hero *hero = [dataSource objectAtIndex:indexPath.row];
+    NSString *title = hero.title;
+    NSString *description = hero.description;
+    NSString *imageHref = hero.imageHref;
+    
+    CGSize titleLabelSize = CGSizeZero;
+    CGSize descriptionLabelSize = CGSizeZero;
+    
+    if (title)
+    {
+        titleLabelSize = [self titleLabelSize:title];
+        cellHeight += titleLabelSize.height;
+    }
+    if (description)
+    {
+        descriptionLabelSize = [self descritionLabelSie:description];
+    }
+    if (imageHref)
+    {
+        cellHeight += (descriptionLabelSize.height > 80 ? descriptionLabelSize.height : 80);
+    }
+    else
+        cellHeight += descriptionLabelSize.height;
+    
+    return cellHeight;
 }
 
 #pragma mark - UITableViewDataSource
@@ -164,11 +207,127 @@
                                       reuseIdentifier:CellIdentifier];
     }
 
-    Hero *hero = [dataSource objectAtIndex:indexPath.row];
-    cell.textLabel.text = hero.title;
-    cell.detailTextLabel.text = hero.description;
-   
+//    Hero *hero = [dataSource objectAtIndex:indexPath.row];
+//    cell.textLabel.text = hero.title;
+//    cell.textLabel.font = [UIFont systemFontOfSize:17];
+//    cell.textLabel.textColor = [UIColor blueColor];
+//    
+//    cell.detailTextLabel.text = hero.description;
+//    cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+//    cell.detailTextLabel.textColor = [UIColor blackColor];
     
+    // try to set textLabel and detaileTextLabel of cell
+    
+    Hero *hero = [dataSource objectAtIndex:indexPath.row];
+    NSString *title = hero.title;
+    NSString *description = hero.description;
+    NSString *imageHref = hero.imageHref;
+    
+    if (!title) {
+        [[cell.contentView viewWithTag:1] removeFromSuperview];
+    }
+    else
+    {
+        // Show title label
+        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
+        
+        UIFont *titleFont =  [UIFont systemFontOfSize:17];//[UIFont fontWithName:""  size:];
+
+        if (!titleLabel) {
+            titleLabel = [[UILabel alloc] init];
+            titleLabel.font = titleFont;
+            titleLabel.textColor = [UIColor blueColor];
+            titleLabel.tag = 1;
+            titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            titleLabel.backgroundColor = [UIColor redColor];
+            
+            // Set numberOfLines to zero to show multiple lines
+            titleLabel.numberOfLines = 0;
+            [cell.contentView addSubview:titleLabel];
+        }
+        // update title label frame and text
+       
+        CGSize size = [self titleLabelSize:title];
+        titleLabel.frame = CGRectMake(0, 0, 280, size.height);
+        
+        titleLabel.text = title;
+        
+    }
+    if (!description) {
+        [[cell.contentView viewWithTag:2] removeFromSuperview];
+    }
+    else
+    {
+        // Show description label
+        UILabel *descriptionLabel =  (UILabel *)[cell.contentView viewWithTag:2];
+        UIFont *descriptionFont = [UIFont systemFontOfSize:12];//[UIFont fontWithName: size:];
+        
+        if (!descriptionLabel) {
+            descriptionLabel = [[UILabel alloc] init];
+            descriptionLabel.font = descriptionFont;
+            descriptionLabel.textColor = [UIColor blackColor];
+            descriptionLabel.tag = 2;
+            descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            descriptionLabel.numberOfLines = 0;
+            descriptionLabel.backgroundColor = [UIColor greenColor];
+            [cell.contentView addSubview:descriptionLabel];
+        }
+        
+        CGSize size = [self descritionLabelSie:description];
+        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
+        CGFloat yOffset = titleLabel ? (titleLabel.frame.origin.y + titleLabel.frame.size.height) : 0;
+        descriptionLabel.frame = CGRectMake(0, yOffset, 200, size.height);
+        descriptionLabel.text = description;
+        
+    }
+    if (!imageHref) {
+        [[cell.contentView viewWithTag:3] removeFromSuperview];
+    }
+    else
+    {
+        // Show image view
+        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:3];
+        if (!imageView) {
+            imageView = [[UIImageView alloc] init];
+            imageView.tag = 3;
+            [cell.contentView addSubview:imageView];
+        }
+        
+        // Do not show the image from resuable cell
+        imageView.image = nil;
+        
+        // Download image from server
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSString *urlString = ((Hero *)[dataSource objectAtIndex:indexPath.row]).imageHref;
+            NSURL *url = [NSURL URLWithString:urlString];
+            NSData *imageData = [NSData dataWithContentsOfURL:url];
+            if (imageData) {
+                UIImage *image = [[UIImage alloc] initWithData:imageData];
+                
+                UITableViewCell *cell = [self.herokuTableView cellForRowAtIndexPath:indexPath];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:3];
+                    imageView.image = image;
+                });
+            }
+            else
+            {
+                NSLog(@"cell %d %@ is unavailable.", indexPath.row, urlString);
+            }
+           
+        });
+        
+        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
+        CGFloat yOffset = titleLabel ? (titleLabel.frame.origin.y + titleLabel.frame.size.height) : 0;
+        
+        UILabel *descriptionLabel = (UILabel *)[cell.contentView viewWithTag:2];
+        CGFloat xOffset = descriptionLabel ? (descriptionLabel.frame.origin.x + descriptionLabel.frame.size.width) : 0;
+        
+        imageView.frame = CGRectMake(xOffset, yOffset, 80, 80);
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        
+    }
     return cell;
 }
 
