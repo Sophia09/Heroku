@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7817B71319A70E73004B0E5B /* ImageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7817B71219A70E73004B0E5B /* ImageUtility.m */; };
-		7817B71519A72788004B0E5B /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7817B71419A72788004B0E5B /* noImage.png */; };
+		7817B71519A72788004B0E5B /* noImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7817B71419A72788004B0E5B /* noImage.jpg */; };
 		787B591919A5E8B40045F96F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591819A5E8B40045F96F /* Foundation.framework */; };
 		787B591B19A5E8B40045F96F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591A19A5E8B40045F96F /* CoreGraphics.framework */; };
 		787B591D19A5E8B40045F96F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591C19A5E8B40045F96F /* UIKit.framework */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		7817B71119A70E73004B0E5B /* ImageUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtility.h; sourceTree = "<group>"; };
 		7817B71219A70E73004B0E5B /* ImageUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtility.m; sourceTree = "<group>"; };
-		7817B71419A72788004B0E5B /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage.png; sourceTree = "<group>"; };
+		7817B71419A72788004B0E5B /* noImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noImage.jpg; sourceTree = "<group>"; };
 		787B591519A5E8B40045F96F /* Heroku2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heroku2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		787B591819A5E8B40045F96F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		787B591A19A5E8B40045F96F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,7 +125,7 @@
 		787B591F19A5E8B40045F96F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7817B71419A72788004B0E5B /* noImage.png */,
+				7817B71419A72788004B0E5B /* noImage.jpg */,
 				787B592019A5E8B40045F96F /* Heroku2-Info.plist */,
 				787B592119A5E8B40045F96F /* InfoPlist.strings */,
 				787B592419A5E8B40045F96F /* main.m */,
@@ -228,7 +228,7 @@
 			files = (
 				787B592319A5E8B40045F96F /* InfoPlist.strings in Resources */,
 				787B592B19A5E8B40045F96F /* Images.xcassets in Resources */,
-				7817B71519A72788004B0E5B /* noImage.png in Resources */,
+				7817B71519A72788004B0E5B /* noImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

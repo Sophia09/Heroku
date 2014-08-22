@@ -339,7 +339,7 @@
                     NSLog(@"cell %d %@ is unavailable.", indexPath.row, urlString);
                     [imageSpinner stopAnimating];
                     [imageSpinner removeFromSuperview];
-                    imageView.image = [UIImage imageNamed:@"noImage.png"];
+                    imageView.image = [UIImage imageNamed:@"noImage.jpg"];
                 }
             });
         }
