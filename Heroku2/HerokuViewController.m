@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "NSDictionary_JSONExtensions.h"
 #import "Hero.h"
+#import "ImageUtility.h"
 
 @interface HerokuViewController ()
 {
@@ -42,10 +43,9 @@
     self.navigationItem.leftBarButtonItem = refreshButton;
     
     self.view.backgroundColor = [UIColor grayColor];
-    
-#warning change the height of table view
+
     // Add a table view to show contents
-    self.herokuTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480 - 44)
+    self.herokuTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)
                                                         style:UITableViewStylePlain];
     self.herokuTableView.delegate = self;
     self.herokuTableView.dataSource = self;
@@ -67,13 +67,9 @@
 
 #pragma mark - Helper methods
 
-- (void)updateUI
-{
-    
-}
-
 - (void)refresh:(id)sender
 {
+    [ImageUtility deleteImageWithPrefix:kCachedImagePrefix];
     [self.spinner startAnimating];
 //    self.herokuTableView.allowsSelection = NO;
      self.navigationItem.leftBarButtonItem.enabled = NO;
@@ -92,7 +88,7 @@
                                                              error:&error];
         
         NSDictionary *theDictionary = [NSDictionary dictionaryWithJSONString:theJSONString error:&error];
-//        dataSource = [theDictionary objectForKey:kRows];
+
         NSArray *heroList = [theDictionary objectForKey:kRows];
         [self filterData:heroList];
         
@@ -104,7 +100,6 @@
             self.navigationItem.leftBarButtonItem.enabled = YES;
             [self.herokuTableView reloadData];
         });
-        
     });
     
 }
@@ -285,37 +280,50 @@
         // Do not show the image from resuable cell
         imageView.image = nil;
         
-        UIActivityIndicatorView *imageSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        imageSpinner.frame = CGRectMake(20, 20, 23, 23);
-        [imageView addSubview:imageSpinner];
-        [imageSpinner startAnimating];
+        NSString *urlString = ((Hero *)[dataSource objectAtIndex:indexPath.row]).imageHref;
+        NSString *imageName = [NSString stringWithFormat:@"%@%d", kCachedImagePrefix, indexPath.row];
+        NSString *extension = [urlString substringFromIndex:(urlString.length - 3)];
         
-        // Download image from server
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            NSString *urlString = ((Hero *)[dataSource objectAtIndex:indexPath.row]).imageHref;
-            NSURL *url = [NSURL URLWithString:urlString];
-            NSData *imageData = [NSData dataWithContentsOfURL:url];
-            if (imageData) {
-                UIImage *image = [[UIImage alloc] initWithData:imageData];
-                
-                UITableViewCell *cell = [self.herokuTableView cellForRowAtIndexPath:indexPath];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:3];
-                    imageView.image = image;
+        // If the image for this cell is already exist, show it directly.
+        if ([ImageUtility imageExists:imageName
+                               ofType:extension])
+        {
+            imageView.image = [ImageUtility loadImage:imageName ofType:extension];
+        }
+        else
+        {
+            // Download image from server
+            UIActivityIndicatorView *imageSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            imageSpinner.frame = CGRectMake(20, 20, 23, 23);
+            [imageView addSubview:imageSpinner];
+            [imageSpinner startAnimating];
+            
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSURL *url = [NSURL URLWithString:urlString];
+                NSData *imageData = [NSData dataWithContentsOfURL:url];
+                if (imageData) {
+                    UIImage *image = [[UIImage alloc] initWithData:imageData];
+                    
+                    UITableViewCell *cell = [self.herokuTableView cellForRowAtIndexPath:indexPath];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:3];
+                        imageView.image = image;
+                        [imageSpinner stopAnimating];
+                        [imageSpinner removeFromSuperview];
+                        
+                        [ImageUtility saveImage:image withFileName:imageName ofType:extension];
+                    });
+                }
+                else
+                {
+                    NSLog(@"cell %d %@ is unavailable.", indexPath.row, urlString);
                     [imageSpinner stopAnimating];
                     [imageSpinner removeFromSuperview];
-                });
-            }
-            else
-            {
-                NSLog(@"cell %d %@ is unavailable.", indexPath.row, urlString);
-                [imageSpinner stopAnimating];
-                [imageSpinner removeFromSuperview];
-#warning show default image
-            }
-           
-        });
+                    imageView.image = [UIImage imageNamed:@"noImage.png"];
+                }
+            });
+        }
         
         UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
         CGFloat yOffset = titleLabel ? (titleLabel.frame.origin.y + titleLabel.frame.size.height) : 0;

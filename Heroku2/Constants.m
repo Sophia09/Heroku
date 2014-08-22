@@ -23,3 +23,5 @@ NSUInteger kMargin = 10;
 
 NSUInteger kTitleLableWidth = 280;
 NSUInteger kDescriptionLabelWidth = 220;
+
+NSString *kCachedImagePrefix = @"HerokuCell";

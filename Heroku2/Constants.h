@@ -22,3 +22,5 @@ extern NSUInteger kImageHeight;
 extern NSUInteger kMargin;
 extern NSUInteger kTitleLableWidth;
 extern NSUInteger kDescriptionLabelWidth;
+
+extern NSString *kCachedImagePrefix;
