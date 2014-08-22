@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7817B71319A70E73004B0E5B /* ImageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7817B71219A70E73004B0E5B /* ImageUtility.m */; };
+		7817B71519A72788004B0E5B /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7817B71419A72788004B0E5B /* noImage.png */; };
 		787B591919A5E8B40045F96F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591819A5E8B40045F96F /* Foundation.framework */; };
 		787B591B19A5E8B40045F96F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591A19A5E8B40045F96F /* CoreGraphics.framework */; };
 		787B591D19A5E8B40045F96F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591C19A5E8B40045F96F /* UIKit.framework */; };
@@ -14,11 +16,6 @@
 		787B592519A5E8B40045F96F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B592419A5E8B40045F96F /* main.m */; };
 		787B592919A5E8B40045F96F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B592819A5E8B40045F96F /* AppDelegate.m */; };
 		787B592B19A5E8B40045F96F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 787B592A19A5E8B40045F96F /* Images.xcassets */; };
-		787B593219A5E8B50045F96F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B593119A5E8B50045F96F /* XCTest.framework */; };
-		787B593319A5E8B50045F96F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591819A5E8B40045F96F /* Foundation.framework */; };
-		787B593419A5E8B50045F96F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787B591C19A5E8B40045F96F /* UIKit.framework */; };
-		787B593C19A5E8B50045F96F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 787B593A19A5E8B50045F96F /* InfoPlist.strings */; };
-		787B593E19A5E8B50045F96F /* Heroku2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B593D19A5E8B50045F96F /* Heroku2Tests.m */; };
 		787B594A19A5E8DE0045F96F /* HerokuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B594919A5E8DE0045F96F /* HerokuViewController.m */; };
 		787B594E19A5ECAC0045F96F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B594D19A5ECAC0045F96F /* Constants.m */; };
 		787B595719A5ED020045F96F /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B595119A5ED020045F96F /* CJSONDeserializer.m */; };
@@ -27,17 +24,10 @@
 		787B595D19A5FD730045F96F /* Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B595C19A5FD730045F96F /* Hero.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		787B593519A5E8B50045F96F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 787B590D19A5E8B40045F96F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 787B591419A5E8B40045F96F;
-			remoteInfo = Heroku2;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		7817B71119A70E73004B0E5B /* ImageUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtility.h; sourceTree = "<group>"; };
+		7817B71219A70E73004B0E5B /* ImageUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtility.m; sourceTree = "<group>"; };
+		7817B71419A72788004B0E5B /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage.png; sourceTree = "<group>"; };
 		787B591519A5E8B40045F96F /* Heroku2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heroku2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		787B591819A5E8B40045F96F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		787B591A19A5E8B40045F96F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -49,11 +39,7 @@
 		787B592719A5E8B40045F96F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		787B592819A5E8B40045F96F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		787B592A19A5E8B40045F96F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		787B593019A5E8B40045F96F /* Heroku2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Heroku2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		787B593119A5E8B50045F96F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		787B593919A5E8B50045F96F /* Heroku2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Heroku2Tests-Info.plist"; sourceTree = "<group>"; };
-		787B593B19A5E8B50045F96F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		787B593D19A5E8B50045F96F /* Heroku2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heroku2Tests.m; sourceTree = "<group>"; };
 		787B594819A5E8DE0045F96F /* HerokuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerokuViewController.h; sourceTree = "<group>"; };
 		787B594919A5E8DE0045F96F /* HerokuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerokuViewController.m; sourceTree = "<group>"; };
 		787B594C19A5ECAC0045F96F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -80,24 +66,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		787B592D19A5E8B40045F96F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				787B593219A5E8B50045F96F /* XCTest.framework in Frameworks */,
-				787B593419A5E8B50045F96F /* UIKit.framework in Frameworks */,
-				787B593319A5E8B50045F96F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7817B71019A70E4F004B0E5B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7817B71119A70E73004B0E5B /* ImageUtility.h */,
+				7817B71219A70E73004B0E5B /* ImageUtility.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		787B590C19A5E8B40045F96F = {
 			isa = PBXGroup;
 			children = (
 				787B591E19A5E8B40045F96F /* Heroku2 */,
-				787B593719A5E8B50045F96F /* Heroku2Tests */,
 				787B591719A5E8B40045F96F /* Frameworks */,
 				787B591619A5E8B40045F96F /* Products */,
 			);
@@ -107,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				787B591519A5E8B40045F96F /* Heroku2.app */,
-				787B593019A5E8B40045F96F /* Heroku2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +109,7 @@
 		787B591E19A5E8B40045F96F /* Heroku2 */ = {
 			isa = PBXGroup;
 			children = (
+				7817B71019A70E4F004B0E5B /* Utilities */,
 				787B595A19A5FD420045F96F /* DataModel */,
 				787B594F19A5ECE40045F96F /* JSONTouch */,
 				787B594B19A5EC980045F96F /* Constants */,
@@ -141,28 +125,11 @@
 		787B591F19A5E8B40045F96F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7817B71419A72788004B0E5B /* noImage.png */,
 				787B592019A5E8B40045F96F /* Heroku2-Info.plist */,
 				787B592119A5E8B40045F96F /* InfoPlist.strings */,
 				787B592419A5E8B40045F96F /* main.m */,
 				787B592619A5E8B40045F96F /* Heroku2-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		787B593719A5E8B50045F96F /* Heroku2Tests */ = {
-			isa = PBXGroup;
-			children = (
-				787B593D19A5E8B50045F96F /* Heroku2Tests.m */,
-				787B593819A5E8B50045F96F /* Supporting Files */,
-			);
-			path = Heroku2Tests;
-			sourceTree = "<group>";
-		};
-		787B593819A5E8B50045F96F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				787B593919A5E8B50045F96F /* Heroku2Tests-Info.plist */,
-				787B593A19A5E8B50045F96F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -228,24 +195,6 @@
 			productReference = 787B591519A5E8B40045F96F /* Heroku2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		787B592F19A5E8B40045F96F /* Heroku2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 787B594419A5E8B50045F96F /* Build configuration list for PBXNativeTarget "Heroku2Tests" */;
-			buildPhases = (
-				787B592C19A5E8B40045F96F /* Sources */,
-				787B592D19A5E8B40045F96F /* Frameworks */,
-				787B592E19A5E8B40045F96F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				787B593619A5E8B50045F96F /* PBXTargetDependency */,
-			);
-			name = Heroku2Tests;
-			productName = Heroku2Tests;
-			productReference = 787B593019A5E8B40045F96F /* Heroku2Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -254,11 +203,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = thoughtworks;
-				TargetAttributes = {
-					787B592F19A5E8B40045F96F = {
-						TestTargetID = 787B591419A5E8B40045F96F;
-					};
-				};
 			};
 			buildConfigurationList = 787B591019A5E8B40045F96F /* Build configuration list for PBXProject "Heroku2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -273,7 +217,6 @@
 			projectRoot = "";
 			targets = (
 				787B591419A5E8B40045F96F /* Heroku2 */,
-				787B592F19A5E8B40045F96F /* Heroku2Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -285,14 +228,7 @@
 			files = (
 				787B592319A5E8B40045F96F /* InfoPlist.strings in Resources */,
 				787B592B19A5E8B40045F96F /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		787B592E19A5E8B40045F96F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				787B593C19A5E8B50045F96F /* InfoPlist.strings in Resources */,
+				7817B71519A72788004B0E5B /* noImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +241,7 @@
 			files = (
 				787B594A19A5E8DE0045F96F /* HerokuViewController.m in Sources */,
 				787B592919A5E8B40045F96F /* AppDelegate.m in Sources */,
+				7817B71319A70E73004B0E5B /* ImageUtility.m in Sources */,
 				787B592519A5E8B40045F96F /* main.m in Sources */,
 				787B595819A5ED020045F96F /* CJSONSerializer.m in Sources */,
 				787B594E19A5ECAC0045F96F /* Constants.m in Sources */,
@@ -314,37 +251,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		787B592C19A5E8B40045F96F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				787B593E19A5E8B50045F96F /* Heroku2Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		787B593619A5E8B50045F96F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 787B591419A5E8B40045F96F /* Heroku2 */;
-			targetProxy = 787B593519A5E8B50045F96F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		787B592119A5E8B40045F96F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				787B592219A5E8B40045F96F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		787B593A19A5E8B50045F96F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				787B593B19A5E8B50045F96F /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -452,48 +365,6 @@
 			};
 			name = Release;
 		};
-		787B594519A5E8B50045F96F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Heroku2.app/Heroku2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Heroku2Tests/Heroku2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		787B594619A5E8B50045F96F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Heroku2.app/Heroku2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Heroku2/Heroku2-Prefix.pch";
-				INFOPLIST_FILE = "Heroku2Tests/Heroku2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -513,14 +384,7 @@
 				787B594319A5E8B50045F96F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		787B594419A5E8B50045F96F /* Build configuration list for PBXNativeTarget "Heroku2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				787B594519A5E8B50045F96F /* Debug */,
-				787B594619A5E8B50045F96F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
