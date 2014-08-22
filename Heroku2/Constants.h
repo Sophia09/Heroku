@@ -24,3 +24,12 @@ extern NSUInteger kTitleLableWidth;
 extern NSUInteger kDescriptionLabelWidth;
 
 extern NSString *kCachedImagePrefix;
+
+// Tag for views in cell
+extern NSUInteger kTitleLabelTag;
+extern NSUInteger kDescriptionLabelTag;
+extern NSUInteger kImageViewTag;
+
+// Font size for label
+extern NSUInteger kTitleLabelFontSize;
+extern NSUInteger kDescriptionLabelFontSize;

@@ -38,6 +38,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // Set UI of navigationItem
+    self.navigationItem.title = @"Heroku";
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
     refreshButton.enabled = YES;
     self.navigationItem.leftBarButtonItem = refreshButton;
@@ -45,18 +47,19 @@
     self.view.backgroundColor = [UIColor grayColor];
 
     // Add a table view to show contents
-    self.herokuTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)
-                                                        style:UITableViewStylePlain];
+    self.herokuTableView = [[UITableView alloc]
+                            initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)
+                            style:UITableViewStylePlain];
+    self.herokuTableView.allowsSelection = NO;
     self.herokuTableView.delegate = self;
     self.herokuTableView.dataSource = self;
     [self.view addSubview:self.herokuTableView];
     
     // Add a spinner to the view
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.spinner.frame = CGRectMake(100, 100, 23, 23);
+    self.spinner.frame = CGRectMake(150, 100, 23, 23);
     self.spinner.hidesWhenStopped = YES;
     [self.view addSubview:self.spinner];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +74,6 @@
 {
     [ImageUtility deleteImageWithPrefix:kCachedImagePrefix];
     [self.spinner startAnimating];
-//    self.herokuTableView.allowsSelection = NO;
      self.navigationItem.leftBarButtonItem.enabled = NO;
     [self updateJSON];
 }
@@ -87,11 +89,11 @@
                                                           encoding:NSUTF8StringEncoding
                                                              error:&error];
         
-        NSDictionary *theDictionary = [NSDictionary dictionaryWithJSONString:theJSONString error:&error];
+        NSDictionary *theDictionary = [NSDictionary dictionaryWithJSONString:theJSONString
+                                                                       error:&error];
 
         NSArray *heroList = [theDictionary objectForKey:kRows];
         [self filterData:heroList];
-        
         
         // Update UI when finished downloading data
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -101,9 +103,9 @@
             [self.herokuTableView reloadData];
         });
     });
-    
 }
 
+// Remove item without any info
 - (void)filterData:(NSArray *)heroData
 {
     if (!dataSource)
@@ -130,13 +132,12 @@
             hero.imageHref = [imageHref isKindOfClass:[NSNull class]] ? nil : imageHref;
             [dataSource addObject:hero];
         }
-        
     }
 }
 
 - (CGSize)titleLabelSize:(NSString *)title
 {
-    UIFont *titleFont =  [UIFont systemFontOfSize:17];
+    UIFont *titleFont =  [UIFont systemFontOfSize:kTitleLabelFontSize];
     CGSize constraint = CGSizeMake(kTitleLableWidth, 20000);
     return [title sizeWithFont:titleFont
                        constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
@@ -144,7 +145,7 @@
 
 - (CGSize)descritionLabelSie:(NSString *)description
 {
-    UIFont *descriptionFont =  [UIFont systemFontOfSize:12];
+    UIFont *descriptionFont =  [UIFont systemFontOfSize:kDescriptionLabelFontSize];
     CGSize constraint = CGSizeMake(kDescriptionLabelWidth, 20000);
     return [description sizeWithFont:descriptionFont
                                    constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
@@ -154,13 +155,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    return 44.0;
-    
-    CGFloat cellHeight = 0;
+    // Get info to show at index path
     Hero *hero = [dataSource objectAtIndex:indexPath.row];
     NSString *title = hero.title;
     NSString *description = hero.description;
     NSString *imageHref = hero.imageHref;
+    
+    CGFloat cellHeight = 0;
     
     CGSize titleLabelSize = CGSizeZero;
     CGSize descriptionLabelSize = CGSizeZero;
@@ -179,7 +180,9 @@
         cellHeight += (descriptionLabelSize.height > kImageHeight ? descriptionLabelSize.height : kImageHeight);
     }
     else
+    {
         cellHeight += descriptionLabelSize.height;
+    }
     
     return cellHeight;
 }
@@ -202,78 +205,87 @@
                                       reuseIdentifier:CellIdentifier];
     }
     
+    // Get info to show at index path
     Hero *hero = [dataSource objectAtIndex:indexPath.row];
     NSString *title = hero.title;
     NSString *description = hero.description;
     NSString *imageHref = hero.imageHref;
     
-    if (!title) {
-        [[cell.contentView viewWithTag:1] removeFromSuperview];
+    // Remove title label if there is no title for the current cell
+    if (!title)
+    {
+        [[cell.contentView viewWithTag:kTitleLabelTag] removeFromSuperview];
     }
     else
     {
         // Show title label
-        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
-        
-        UIFont *titleFont =  [UIFont systemFontOfSize:17];//[UIFont fontWithName:""  size:];
+        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:kTitleLabelTag];
 
-        if (!titleLabel) {
+        if (!titleLabel)
+        {
+            // Set attribute of title label
             titleLabel = [[UILabel alloc] init];
-            titleLabel.font = titleFont;
+            titleLabel.font = [UIFont systemFontOfSize:kTitleLabelFontSize];//[UIFont fontWithName:""  size:];;
             titleLabel.textColor = [UIColor blueColor];
-            titleLabel.tag = 1;
+            titleLabel.tag = kTitleLabelTag;
             titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
             titleLabel.backgroundColor = [UIColor redColor];
             
             // Set numberOfLines to zero to show multiple lines
             titleLabel.numberOfLines = 0;
+            
+            // Add a title label to cell.contentView
             [cell.contentView addSubview:titleLabel];
         }
-        // update title label frame and text
-       
+        
+        // update frame and text of title label
         CGSize size = [self titleLabelSize:title];
         titleLabel.frame = CGRectMake(0, 0, kTitleLableWidth, size.height);
-        
         titleLabel.text = title;
     }
     
-    if (!description) {
-        [[cell.contentView viewWithTag:2] removeFromSuperview];
+    if (!description)
+    {
+        [[cell.contentView viewWithTag:kDescriptionLabelTag] removeFromSuperview];
     }
     else
     {
         // Show description label
-        UILabel *descriptionLabel =  (UILabel *)[cell.contentView viewWithTag:2];
-        UIFont *descriptionFont = [UIFont systemFontOfSize:12];//[UIFont fontWithName: size:];
+        UILabel *descriptionLabel =  (UILabel *)[cell.contentView viewWithTag:kDescriptionLabelTag];
         
-        if (!descriptionLabel) {
+        if (!descriptionLabel)
+        {
+            // Set attributes of description label
             descriptionLabel = [[UILabel alloc] init];
-            descriptionLabel.font = descriptionFont;
+            descriptionLabel.font = [UIFont systemFontOfSize:kDescriptionLabelFontSize];//[UIFont fontWithName: size:];;
             descriptionLabel.textColor = [UIColor blackColor];
-            descriptionLabel.tag = 2;
+            descriptionLabel.tag = kDescriptionLabelTag;
             descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
             descriptionLabel.numberOfLines = 0;
             descriptionLabel.backgroundColor = [UIColor greenColor];
             [cell.contentView addSubview:descriptionLabel];
         }
         
+        // update frame and text of description label
         CGSize size = [self descritionLabelSie:description];
-        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
+        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:kTitleLabelTag];
         CGFloat yOffset = titleLabel ? (titleLabel.frame.origin.y + titleLabel.frame.size.height) : 0;
         descriptionLabel.frame = CGRectMake(0, yOffset, kDescriptionLabelWidth, size.height);
         descriptionLabel.text = description;
     }
     
-    if (!imageHref) {
-        [[cell.contentView viewWithTag:3] removeFromSuperview];
+    if (!imageHref)
+    {
+        [[cell.contentView viewWithTag:kImageViewTag] removeFromSuperview];
     }
     else
     {
         // Show image view
-        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:3];
-        if (!imageView) {
+        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
+        if (!imageView)
+        {
             imageView = [[UIImageView alloc] init];
-            imageView.tag = 3;
+            imageView.tag = kImageViewTag;
             [cell.contentView addSubview:imageView];
         }
         
@@ -292,7 +304,7 @@
         }
         else
         {
-            // Download image from server
+            // Download image from server and save them for reuse
             UIActivityIndicatorView *imageSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             imageSpinner.frame = CGRectMake(20, 20, 23, 23);
             [imageView addSubview:imageSpinner];
@@ -307,7 +319,7 @@
                     UITableViewCell *cell = [self.herokuTableView cellForRowAtIndexPath:indexPath];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:3];
+                        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
                         imageView.image = image;
                         [imageSpinner stopAnimating];
                         [imageSpinner removeFromSuperview];
@@ -325,11 +337,10 @@
             });
         }
         
-        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:1];
+        // Update frame of image view
+        UILabel *titleLabel =  (UILabel *)[cell.contentView viewWithTag:kTitleLabelTag];
         CGFloat yOffset = titleLabel ? (titleLabel.frame.origin.y + titleLabel.frame.size.height) : 0;
-        
         CGFloat xOffset = cell.frame.size.width - kImageWidth - kMargin;
-        
         imageView.frame = CGRectMake(xOffset, yOffset, kImageWidth, kImageHeight);
         imageView.contentMode = UIViewContentModeScaleToFill;
         

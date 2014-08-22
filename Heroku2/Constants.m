@@ -19,9 +19,17 @@ NSString *kImageHref = @"imageHref";
 // Width/Height of UI components
 NSUInteger kImageWidth = 80;
 NSUInteger kImageHeight = 80;
-NSUInteger kMargin = 10;
+NSUInteger kMargin = 15;
 
 NSUInteger kTitleLableWidth = 280;
 NSUInteger kDescriptionLabelWidth = 220;
 
 NSString *kCachedImagePrefix = @"HerokuCell";
+
+// Tag for views in cell
+NSUInteger kTitleLabelTag = 1;
+NSUInteger kDescriptionLabelTag = 2;
+NSUInteger kImageViewTag = 3;
+
+NSUInteger kTitleLabelFontSize = 17;
+NSUInteger kDescriptionLabelFontSize = 12;
