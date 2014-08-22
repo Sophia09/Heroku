@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-
+// Names of json variable
 extern NSString *kTitle;
 extern NSString *kRows;
 
 extern NSString *kTitle_subLayer;
 extern NSString *kDescription;
 extern NSString *kImageHref;
+
+// Width/Height of UI components
+extern NSUInteger kImageWidth;
+extern NSUInteger kImageHeight;
+extern NSUInteger kMargin;
+extern NSUInteger kTitleLableWidth;
+extern NSUInteger kDescriptionLabelWidth;
