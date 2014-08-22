@@ -48,7 +48,10 @@
 
     // Add a table view to show contents
     self.herokuTableView = [[UITableView alloc]
-                            initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)
+                            initWithFrame:CGRectMake(0,
+                                                     0,
+                                                     self.view.frame.size.width,
+                                                     self.view.frame.size.height - 44)
                             style:UITableViewStylePlain];
     self.herokuTableView.allowsSelection = NO;
     self.herokuTableView.delegate = self;
@@ -285,6 +288,7 @@
         if (!imageView)
         {
             imageView = [[UIImageView alloc] init];
+            imageView.backgroundColor = [UIColor lightGrayColor];
             imageView.tag = kImageViewTag;
             [cell.contentView addSubview:imageView];
         }
@@ -306,7 +310,10 @@
         {
             // Download image from server and save them for reuse
             UIActivityIndicatorView *imageSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            imageSpinner.frame = CGRectMake(20, 20, 23, 23);
+            imageSpinner.frame = CGRectMake((kImageWidth - 23) / 2.0f,
+                                            (kImageHeight - 23) / 2.0f,
+                                            23,
+                                            23);
             [imageView addSubview:imageSpinner];
             [imageSpinner startAnimating];
             
