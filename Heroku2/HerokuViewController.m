@@ -94,6 +94,7 @@
 
 - (void)updateJSON
 {
+    __weak HerokuViewController *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         // Download data from server
@@ -102,6 +103,24 @@
         NSString *theJSONString =[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString]
                                                           encoding:NSUTF8StringEncoding
                                                              error:&error];
+        if (!theJSONString)
+        {
+            // There is no json data
+            // Update UI
+          
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.spinner stopAnimating];
+                weakSelf.navigationItem.leftBarButtonItem.enabled = YES;
+            });            
+   
+            UIAlertView *noDataAlertView = [[UIAlertView alloc] initWithTitle:@"No data"
+                                                                      message:@"Oops, there is no available data now."
+                                                                     delegate:nil
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil, nil];
+            [noDataAlertView show];
+            return;
+        }
         
         NSDictionary *theDictionary = [NSDictionary dictionaryWithJSONString:theJSONString
                                                                        error:&error];
@@ -111,10 +130,10 @@
         
         // Update UI when finished downloading data
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.navigationItem.title = [theDictionary objectForKey:kTitle];
-            [self.spinner stopAnimating];
-            self.navigationItem.leftBarButtonItem.enabled = YES;
-            [self.herokuTableView reloadData];
+            weakSelf.navigationItem.title = [theDictionary objectForKey:kTitle];
+            [weakSelf.spinner stopAnimating];
+            weakSelf.navigationItem.leftBarButtonItem.enabled = YES;
+            [weakSelf.herokuTableView reloadData];
         });
     });
 }
@@ -122,13 +141,14 @@
 // Remove item without any info
 - (void)filterData:(NSArray *)heroData
 {
+     __weak HerokuViewController *weakSelf = self;
     if (!_dataSource)
     {
         _dataSource = [[NSMutableArray alloc] init];
     }
     else
     {
-        [self.dataSource removeAllObjects];
+        [weakSelf.dataSource removeAllObjects];
     }
     
     for (NSDictionary *dataDic in heroData)
@@ -144,7 +164,7 @@
             hero.title = [title isKindOfClass:[NSNull class]] ? nil : title;
             hero.description = [description isKindOfClass:[NSNull class]] ? nil : description;
             hero.imageHref = [imageHref isKindOfClass:[NSNull class]] ? nil : imageHref;
-            [self.dataSource addObject:hero];
+            [weakSelf.dataSource addObject:hero];
         }
     }
 }
@@ -328,13 +348,14 @@
             [imageView addSubview:imageSpinner];
             [imageSpinner startAnimating];
             
+            __weak HerokuViewController *weakSelf = self;
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 NSURL *url = [NSURL URLWithString:urlString];
                 NSData *imageData = [NSData dataWithContentsOfURL:url];
                 if (imageData) {
                     UIImage *image = [[UIImage alloc] initWithData:imageData];
                     
-                    UITableViewCell *cell = [self.herokuTableView cellForRowAtIndexPath:indexPath];
+                    UITableViewCell *cell = [weakSelf.herokuTableView cellForRowAtIndexPath:indexPath];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
@@ -348,9 +369,11 @@
                 else
                 {
                     NSLog(@"cell %d %@ is unavailable.", (int)indexPath.row, urlString);
-                    [imageSpinner stopAnimating];
-                    [imageSpinner removeFromSuperview];
-                    imageView.image = [UIImage imageNamed:@"noImage.jpg"];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [imageSpinner stopAnimating];
+                        [imageSpinner removeFromSuperview];
+                        imageView.image = [UIImage imageNamed:@"noImage.jpg"];
+                    });
                 }
             });
         }
