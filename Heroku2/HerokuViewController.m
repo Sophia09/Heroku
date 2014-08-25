@@ -43,14 +43,21 @@
     refreshButton.enabled = YES;
     self.navigationItem.leftBarButtonItem = refreshButton;
     
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    CGFloat tableViewHeight = self.view.frame.size.height;
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+    if ([systemVersion floatValue] < 7.0)
+    {
+        tableViewHeight -= 44.0f;
+    }
 
     // Add a table view to show contents
     self.herokuTableView = [[UITableView alloc]
                             initWithFrame:CGRectMake(0,
                                                      0,
                                                      self.view.frame.size.width,
-                                                     self.view.frame.size.height - 44)
+                                                     tableViewHeight)
                             style:UITableViewStylePlain];
     self.herokuTableView.allowsSelection = NO;
     self.herokuTableView.delegate = self;
