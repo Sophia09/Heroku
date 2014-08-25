@@ -13,12 +13,11 @@
 #import "ImageUtility.h"
 
 @interface HerokuViewController ()
-{
-    NSMutableArray *dataSource;
-}
 
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @property (nonatomic, strong) UITableView *herokuTableView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 
 @end
 
@@ -111,13 +110,13 @@
 // Remove item without any info
 - (void)filterData:(NSArray *)heroData
 {
-    if (!dataSource)
+    if (!_dataSource)
     {
-        dataSource = [[NSMutableArray alloc] init];
+        _dataSource = [[NSMutableArray alloc] init];
     }
     else
     {
-        [dataSource removeAllObjects];
+        [self.dataSource removeAllObjects];
     }
     
     for (NSDictionary *dataDic in heroData)
@@ -133,7 +132,7 @@
             hero.title = [title isKindOfClass:[NSNull class]] ? nil : title;
             hero.description = [description isKindOfClass:[NSNull class]] ? nil : description;
             hero.imageHref = [imageHref isKindOfClass:[NSNull class]] ? nil : imageHref;
-            [dataSource addObject:hero];
+            [self.dataSource addObject:hero];
         }
     }
 }
@@ -159,7 +158,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get info to show at index path
-    Hero *hero = [dataSource objectAtIndex:indexPath.row];
+    Hero *hero = [self.dataSource objectAtIndex:indexPath.row];
     NSString *title = hero.title;
     NSString *description = hero.description;
     NSString *imageHref = hero.imageHref;
@@ -194,7 +193,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [dataSource count];
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -209,7 +208,7 @@
     }
     
     // Get info to show at index path
-    Hero *hero = [dataSource objectAtIndex:indexPath.row];
+    Hero *hero = [self.dataSource objectAtIndex:indexPath.row];
     NSString *title = hero.title;
     NSString *description = hero.description;
     NSString *imageHref = hero.imageHref;
@@ -296,7 +295,7 @@
         // Do not show the image from resuable cell
         imageView.image = nil;
         
-        NSString *urlString = ((Hero *)[dataSource objectAtIndex:indexPath.row]).imageHref;
+        NSString *urlString = ((Hero *)[self.dataSource objectAtIndex:indexPath.row]).imageHref;
         NSString *imageName = [NSString stringWithFormat:@"%@%d", kCachedImagePrefix, (int)indexPath.row];
         NSString *extension = [urlString substringFromIndex:(urlString.length - 3)];
         
