@@ -64,6 +64,12 @@
     [self.view addSubview:self.spinner];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateUI];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -72,12 +78,18 @@
 
 #pragma mark - Helper methods
 
-- (void)refresh:(id)sender
+- (void)updateUI
 {
     [ImageUtility deleteImageWithPrefix:kCachedImagePrefix];
     [self.spinner startAnimating];
-     self.navigationItem.leftBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
     [self updateJSON];
+
+}
+
+- (void)refresh:(id)sender
+{
+    [self updateUI];
 }
 
 - (void)updateJSON
